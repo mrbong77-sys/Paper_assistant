@@ -1,0 +1,21 @@
+# Round {{ROUND}} 답변 표. `python -m pa round split`이 의견별 [[item]]을 덧붙이고,
+# `python -m pa round letter`가 이 파일로 답변서(Markdown, LaTeX, DOCX)를 만들고 빠진 곳을 점검합니다.
+#
+# status: done | partly | declined | pending
+# change: 원고에서 바뀐 정확한 위치(절, 쪽, 표·그림). done/partly이면 반드시 적습니다.
+# lane:   HITL(사람이 처리) | CITL(Claude가 처리)
+# in_paper: 원고가 바뀌었으면 true, 답변서에서만 설명했으면 false
+
+[letter]
+title = ""
+manuscript_id = ""
+journal = ""
+intro = """Thank you for the careful reading. Each comment is answered below, with the location of every change in the revised manuscript. Section, table and figure numbers refer to the revised version."""
+
+# 요청 밖에서 고친 것의 예:
+# [[own]]
+# id = "O1"
+# change = "Corrected the sample count in Table 2 (n = 118, not 119)."
+# reason = "Found in our own check of the numbers ledger."
+# location = "Table 2"
+# in_paper = true

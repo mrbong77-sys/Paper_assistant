@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{revmarks}[2026/11/09 Revision marks for a marked and a clean copy]
+% \rev{text}   prints changed text in colour in the marked copy and plainly in the clean copy.
+% \revon       colours to the end of the current group.
+% \tbd{note}   a visible placeholder that must not survive to submission (python -m pa check flags [TBD ...]).
+% Clean copy:  pdflatex -jobname=main_clean "\def\cleancopy{}\input{main}"   (python -m pa build latex --clean-copy)
+\RequirePackage{xcolor}
+\definecolor{revcolor}{RGB}{0,0,200}
+\newif\ifrevmarks \revmarkstrue
+\ifdefined\cleancopy \revmarksfalse \fi
+\newcommand{\rev}[1]{{\ifrevmarks\color{revcolor}\fi #1}}
+\newcommand{\revon}{\ifrevmarks\color{revcolor}\fi}
+\newcommand{\tbd}[1]{\textcolor{red}{\textbf{[TBD: #1]}}}
+\endinput

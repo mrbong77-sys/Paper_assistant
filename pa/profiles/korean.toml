@@ -1,0 +1,18 @@
+# 한국어 학술 원고(분야 공통). 문장 길이는 공백을 뺀 글자 수로 셉니다.
+description = "한국어 학술지: 번역투·이중 피동·추정 어미 점검, 문장 길이는 글자 수, 문체(한다체/합니다체) 통일."
+language = "ko"
+first_person = "forbid"
+sentence_unit = "chars"
+sentence_target = [40, 60]
+sentence_review = 80
+sentence_long = 100
+sentence_long_max = 6
+sentence_cap = 120
+paragraph_max = 0
+check_spelling = false
+check_abbrev = true
+structure = "학술지 규정(서론-이론적 배경-연구 방법-결과-논의-결론 등)"
+citation_style = "학술지 규정(APA 변형이 흔함)"
+tense = "선행 연구는 현재 또는 과거, 이 연구의 방법·결과는 과거"
+disabled = []
+extra_phrases = []

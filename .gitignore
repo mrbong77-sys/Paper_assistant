@@ -1,0 +1,17 @@
+# Your own projects stay out of this public repository (keep them in a private repository or set PA_PROJECTS).
+projects/*
+!projects/README.md
+# Book knowledge bases you build from books you own (copyrighted material; see docs/kb_building.md)
+knowledge/private/
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# LaTeX build files
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.synctex.gz

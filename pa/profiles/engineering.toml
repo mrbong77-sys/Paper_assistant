@@ -1,0 +1,19 @@
+# Engineering and computer science (IMRAD, numeric results, plain English).
+description = "공학·컴퓨터과학: IMRAD, 수치 결과 중심, 평이한 영어. 1인칭 금지는 하우스 규칙으로 켭니다."
+language = "en"
+first_person = "forbid"      # forbid | allow  (many venues allow 'we'; set allow if the journal and the author want it)
+sentence_unit = "words"
+sentence_target = [15, 18]
+sentence_review = 25
+sentence_long = 30
+sentence_long_max = 4
+sentence_cap = 32
+paragraph_max = 150
+structure = "IMRAD"
+citation_style = "IEEE or APA 7 (journal decides)"
+tense = "general facts present; own methods and results past; what a figure shows present"
+disabled = []
+extra_phrases = [
+  ["\\bstate[- ]of[- ]the[- ]art\\b", "LA-09", "name the baseline and the margin instead"],
+  ["\\boutperform(s|ed)? (all|every)\\b", "EV-04", "check that every baseline and every metric supports 'all'"],
+]

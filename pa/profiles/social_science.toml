@@ -1,0 +1,19 @@
+# Social sciences and education (APA style, construct definitions, effect sizes).
+description = "사회과학·교육: APA 7, 구성 개념의 정의와 측정, 효과 크기와 신뢰구간, 표본과 맥락의 한계."
+language = "en"
+first_person = "allow"
+sentence_unit = "words"
+sentence_target = [16, 22]
+sentence_review = 28
+sentence_long = 35
+sentence_long_max = 6
+sentence_cap = 40
+paragraph_max = 200
+structure = "IMRAD (theory section allowed)"
+citation_style = "APA 7"
+tense = "literature in past or present perfect (APA); own methods and results past"
+disabled = []
+extra_phrases = [
+  ["\\bcaus(e|es|ed|al)\\b", "EV-04", "check the design supports a causal claim"],
+  ["\\bsubjects\\b", "LA-10", "APA prefers 'participants'"],
+]

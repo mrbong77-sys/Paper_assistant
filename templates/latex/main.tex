@@ -1,0 +1,31 @@
+% Generic manuscript skeleton. Replace the document class with the journal's template when it has one.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,booktabs,amsmath,xspace}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{revmarks}
+\input{numbers}   % generated: python -m pa numbers macros  ->  \NumKey commands from 05_data/numbers.csv
+
+\title{Title}
+\author{Author names (removed for double-blind review)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+State the aim, the method, the main result with its number (for example \NumExampleAccuracy), and the conclusion.
+\end{abstract}
+
+\section{Introduction}
+\section{Methods}
+\section{Results}
+\section{Discussion}
+\section{Conclusions}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}

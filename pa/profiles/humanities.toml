@@ -1,0 +1,20 @@
+# Humanities (argument-driven essays, close reading, primary sources).
+description = "인문학: 논증 중심, 1인칭 허용, 긴 문장과 단락 허용, 원전 인용과 쪽수, Chicago·MLA."
+language = "en"
+first_person = "allow"
+sentence_unit = "words"
+sentence_target = [18, 26]
+sentence_review = 35
+sentence_long = 45
+sentence_long_max = 10
+sentence_cap = 55
+paragraph_max = 300
+check_abbrev = false
+structure = "thesis-driven essay: question, argument by sections, conclusion"
+citation_style = "Chicago notes-bibliography or MLA"
+tense = "literary present for texts and arguments; past for historical events"
+disabled = ["LA-17"]
+extra_phrases = [
+  ["\\bsince the dawn of\\b|\\bthroughout history\\b", "LA-18", "stock opening"],
+  ["\\bit can be argued\\b", "ST-03", "say who argues it, or argue it"],
+]

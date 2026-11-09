@@ -1,0 +1,19 @@
+# Natural sciences (physics, chemistry, earth and life sciences outside clinical work).
+description = "자연과학: IMRAD, 측정 불확도와 단위, 통계 보고. 1인칭은 저널에 따라 허용."
+language = "en"
+first_person = "allow"
+sentence_unit = "words"
+sentence_target = [15, 20]
+sentence_review = 25
+sentence_long = 30
+sentence_long_max = 5
+sentence_cap = 35
+paragraph_max = 180
+structure = "IMRAD"
+citation_style = "journal style (often numbered)"
+tense = "general facts present; own methods and results past"
+disabled = []
+extra_phrases = [
+  ["\\b\\d+(\\.\\d+)?\\s?±", "EV-03", "state whether ± is SD, SE or CI"],
+  ["\\bproves?\\b", "EV-04", "data support or are consistent with; they rarely prove"],
+]

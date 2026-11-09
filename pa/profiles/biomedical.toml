@@ -1,0 +1,20 @@
+# Biomedical and clinical research (reporting guidelines such as CONSORT, STROBE, PRISMA).
+description = "의생명·임상: 보고 지침(CONSORT·STROBE·PRISMA 등), 윤리 승인·동의·등록 번호, 효과 크기와 신뢰구간."
+language = "en"
+first_person = "allow"
+sentence_unit = "words"
+sentence_target = [15, 20]
+sentence_review = 25
+sentence_long = 30
+sentence_long_max = 4
+sentence_cap = 35
+paragraph_max = 170
+structure = "IMRAD + reporting guideline checklist"
+citation_style = "Vancouver or AMA"
+tense = "general facts present; own methods and results past"
+disabled = []
+extra_phrases = [
+  ["\\b(cure|cures|cured)\\b", "EV-04", "overclaim risk; state the measured outcome"],
+  ["\\btrend(ed)? towards? significance\\b", "LA-17", "a non-significant result is not a trend"],
+  ["\\bpatients? (were|was) (enrolled|recruited)\\b", "RE-07", "check ethics approval, consent and registration are stated"],
+]
