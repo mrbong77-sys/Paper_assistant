@@ -1,7 +1,7 @@
 """Synthetic benchmark of the example project (no real data; standard library only).
 
     python examples/demo_project/05_data/scripts/run_benchmark.py            # full run (a few seconds)
-    python examples/demo_project/05_data/scripts/run_benchmark.py --check    # small run for a quick test
+    python examples/demo_project/05_data/scripts/run_benchmark.py --check    # small run -> processed/results_check.json
 
 Two Gaussian classes in 2-D with a mean separation `d` (class overlap falls as d grows). For each d and each of five
 fixed seeds, a training set of 200 points and a test set of 1,000 points are drawn; logistic regression (batch
@@ -62,6 +62,8 @@ def main(argv=None) -> int:
     ap.add_argument("--check", action="store_true", help="two separations, one seed, small sets")
     ap.add_argument("--out", type=Path, default=OUT)
     a = ap.parse_args(argv)
+    if a.check and a.out == OUT:
+        a.out = OUT.with_name("results_check.json")      # a check run never overwrites the real results
     seps, seeds, n_train, n_test = (SEPARATIONS[:2], SEEDS[:1], 40, 100) if a.check else (SEPARATIONS, SEEDS, 200, 1000)
     res = json.loads(a.out.read_text(encoding="utf-8")) if a.out.exists() and not a.check else {"cells": {}}
     res.update({"n_train": n_train, "n_test": n_test, "separations": seps, "seeds": seeds})

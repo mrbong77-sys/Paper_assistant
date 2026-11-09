@@ -10,3 +10,4 @@
 07_manuscript/tex/*.blg
 07_manuscript/tex/*.out
 submission/render/
+05_data/processed/results_check.json
