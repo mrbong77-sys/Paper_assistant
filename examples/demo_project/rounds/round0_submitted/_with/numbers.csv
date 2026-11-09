@@ -1,0 +1,40 @@
+key,value,unit,source,note
+n_train,200,,05_data/processed/results.json:n_train,training points per cell
+n_test,"1,000",,05_data/processed/results.json:n_test,test points per cell
+n_seeds,5,,05_data/processed/results.json:seeds,
+n_cells,25,,05_data/processed/results.json:cells,separations x seeds
+acc_lr_d0p5,60.0,%,05_data/processed/results.json:summary.0.5.logistic.mean,mean over 5 seeds
+sd_lr_d0p5,1.7,%,05_data/processed/results.json:summary.0.5.logistic.sd,SD over seeds
+acc_nc_d0p5,60.2,%,05_data/processed/results.json:summary.0.5.centroid.mean,mean over 5 seeds
+sd_nc_d0p5,1.9,%,05_data/processed/results.json:summary.0.5.centroid.sd,SD over seeds
+acc_bayes_d0p5,59.9,%,Phi(d/2) with d=0.5,Bayes-optimal accuracy
+diff_d0p5,-0.2,points,05_data/processed/results.json:summary.0.5.diff_mean,"logistic minus centroid, before rounding"
+acc_lr_d1p0,67.9,%,05_data/processed/results.json:summary.1.0.logistic.mean,mean over 5 seeds
+sd_lr_d1p0,0.8,%,05_data/processed/results.json:summary.1.0.logistic.sd,SD over seeds
+acc_nc_d1p0,68.2,%,05_data/processed/results.json:summary.1.0.centroid.mean,mean over 5 seeds
+sd_nc_d1p0,0.9,%,05_data/processed/results.json:summary.1.0.centroid.sd,SD over seeds
+acc_bayes_d1p0,69.1,%,Phi(d/2) with d=1.0,Bayes-optimal accuracy
+diff_d1p0,-0.3,points,05_data/processed/results.json:summary.1.0.diff_mean,"logistic minus centroid, before rounding"
+acc_lr_d1p5,75.9,%,05_data/processed/results.json:summary.1.5.logistic.mean,mean over 5 seeds
+sd_lr_d1p5,1.4,%,05_data/processed/results.json:summary.1.5.logistic.sd,SD over seeds
+acc_nc_d1p5,75.9,%,05_data/processed/results.json:summary.1.5.centroid.mean,mean over 5 seeds
+sd_nc_d1p5,1.4,%,05_data/processed/results.json:summary.1.5.centroid.sd,SD over seeds
+acc_bayes_d1p5,77.3,%,Phi(d/2) with d=1.5,Bayes-optimal accuracy
+diff_d1p5,+0.0,points,05_data/processed/results.json:summary.1.5.diff_mean,"logistic minus centroid, before rounding"
+acc_lr_d2p0,82.7,%,05_data/processed/results.json:summary.2.0.logistic.mean,mean over 5 seeds
+sd_lr_d2p0,0.6,%,05_data/processed/results.json:summary.2.0.logistic.sd,SD over seeds
+acc_nc_d2p0,83.2,%,05_data/processed/results.json:summary.2.0.centroid.mean,mean over 5 seeds
+sd_nc_d2p0,0.7,%,05_data/processed/results.json:summary.2.0.centroid.sd,SD over seeds
+acc_bayes_d2p0,84.1,%,Phi(d/2) with d=2.0,Bayes-optimal accuracy
+diff_d2p0,-0.4,points,05_data/processed/results.json:summary.2.0.diff_mean,"logistic minus centroid, before rounding"
+acc_lr_d3p0,93.8,%,05_data/processed/results.json:summary.3.0.logistic.mean,mean over 5 seeds
+sd_lr_d3p0,0.6,%,05_data/processed/results.json:summary.3.0.logistic.sd,SD over seeds
+acc_nc_d3p0,94.2,%,05_data/processed/results.json:summary.3.0.centroid.mean,mean over 5 seeds
+sd_nc_d3p0,0.9,%,05_data/processed/results.json:summary.3.0.centroid.sd,SD over seeds
+acc_bayes_d3p0,93.3,%,Phi(d/2) with d=3.0,Bayes-optimal accuracy
+diff_d3p0,-0.4,points,05_data/processed/results.json:summary.3.0.diff_mean,"logistic minus centroid, before rounding"
+sign_pos,3,,sign test over 05_data/processed/results.json:cells,cells where logistic > centroid
+sign_neg,16,,sign test over 05_data/processed/results.json:cells,cells where logistic < centroid
+sign_ties,6,,sign test over 05_data/processed/results.json:cells,ties
+sign_p,0.004,,exact two-sided sign test (make_ledger.py:sign_test),
+max_gap_bayes,1.4,points,max |mean accuracy - Bayes| over all d and both models,

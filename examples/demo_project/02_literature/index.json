@@ -1,0 +1,26 @@
+{
+ "items": {
+  "Cox1958": {
+   "verified": true,
+   "verified_by": "crossref",
+   "checked": "2026-11-09",
+   "doi": "10.1111/j.2517-6161.1958.tb00292.x",
+   "arxiv": "",
+   "status": "record"
+  },
+  "Fisher1936": {
+   "verified": true,
+   "verified_by": "crossref",
+   "checked": "2026-11-09",
+   "doi": "10.1111/j.1469-1809.1936.tb02137.x",
+   "arxiv": "",
+   "status": "record"
+  },
+  "Pedregosa2011": {
+   "verified": true,
+   "verified_by": "manual",
+   "checked": "2026-11-09",
+   "manual_note": "JMLR volume 12 page (jmlr.org/papers/v12/pedregosa11a.html): 16 authors, pages 2825-2830; the arXiv version 1201.0490 lists 19 authors, the published byline is cited"
+  }
+ }
+}

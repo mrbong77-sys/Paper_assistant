@@ -1,0 +1,24 @@
+# 프로젝트 설정. `python -m pa new`가 만들고, 사람이 고칩니다.
+[project]
+slug = "demo_project"
+title = "Logistic regression versus nearest-centroid classification under class overlap: a synthetic benchmark"
+field = "engineering"          # 분야 프로필: engineering | natural_science | biomedical | social_science | humanities | korean
+language = "en"    # 원고 언어: en | ko
+created = "2026-11-09"
+manuscript = "07_manuscript/manuscript.md"   # LaTeX이면 "07_manuscript/tex/main.tex"
+
+[journal]
+name = "Journal of Example Studies (fictional)"
+url = ""
+max_words = 0            # 0 = 상한 없음(또는 아직 모름)
+max_abstract_words = 0
+max_displays = 0         # 표 + 그림 개수 상한
+reference_style = ""     # 예: APA 7, IEEE, Vancouver, Chicago
+spelling = ""            # US | UK | (한국어 원고는 비움)
+blind = "none"           # none | single | double
+first_person = ""        # 비우면 분야 프로필을 따름; "forbid" 또는 "allow"로 덮어씀
+
+[people]
+# 이름만 적습니다. 이메일·전화·주소 같은 신상 정보는 공개 저장소에 두지 않습니다.
+owner = ""               # 승인 권한이 있는 사람(HITL 관문 승인자)
+reviewers = []           # 독립 검수를 맡을 사람이나 세션 이름

@@ -106,6 +106,8 @@ def make_key(authors: list[str], year: str, taken: set[str]) -> str:
     first = authors[0] if authors else "Anon"
     family = first.split(",")[0] if "," in first else first.split()[-1]
     sur = re.sub(r"[^A-Za-z]", "", family)
+    if sur.isupper():
+        sur = sur.capitalize()
     base = f"{sur or 'Anon'}{year or 'nd'}"
     key, n = base, 0
     while key in taken:

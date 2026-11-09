@@ -1,0 +1,12 @@
+# 저작물과 대용량 원자료는 커밋하지 않습니다.
+02_literature/papers/
+02_literature/text/
+05_data/raw/*
+!05_data/raw/.gitkeep
+07_manuscript/build/
+07_manuscript/tex/*.aux
+07_manuscript/tex/*.log
+07_manuscript/tex/*.bbl
+07_manuscript/tex/*.blg
+07_manuscript/tex/*.out
+submission/render/

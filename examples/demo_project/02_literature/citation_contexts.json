@@ -1,0 +1,20 @@
+{
+ "Cox1958": [
+  {
+   "line": 17,
+   "sentence": "Logistic regression [@Cox1958] is a common default because it fits a decision boundary to the data, whereas a nearest-centroid rule only compares distances to the class means."
+  }
+ ],
+ "Fisher1936": [
+  {
+   "line": 17,
+   "sentence": "The nearest-centroid rule uses this boundary, and it is also the linear discriminant of @Fisher1936 for this covariance."
+  }
+ ],
+ "Pedregosa2011": [
+  {
+   "line": 53,
+   "sentence": "Both classifiers are available in standard libraries such as scikit-learn [@Pedregosa2011], so the benchmark can be extended to those settings."
+  }
+ ]
+}

@@ -87,6 +87,10 @@ def split_comments(text: str) -> list[dict]:
         if h:
             flush()
             who = h.group(1).strip()
+            if not re.match(r"(the\s+)?(handling\s+|academic\s+|associate\s+)?(editor|reviewer|referee)\b|"
+                            r"(편집|심사위원|심사자|검토자)", who, re.I):
+                who = None                       # a title or notes heading, not a commenter
+                continue
             m = re.search(r"(\d+)", who)
             prefix = "E" if who.lower().startswith(("editor", "편집")) else (f"R{m.group(1)}" if m else re.sub(r"\W", "", who)[:3].upper())
             k = 0

@@ -105,7 +105,7 @@ def save_state(project: Path, state: dict) -> None:
 
 
 def slugify(s: str) -> str:
-    s = re.sub(r"[^A-Za-z0-9가-힣]+", "-", s.strip()).strip("-").lower()
+    s = re.sub(r"[^A-Za-z0-9가-힣_]+", "-", s.strip()).strip("-").lower()
     return s or "project"
 
 
@@ -203,11 +203,12 @@ def queue_close(project: Path, qid: str, answer: str, by: str = "") -> None:
     lane = "hitl" if qid.upper().startswith("H") else "citl"
     p = queue_path(project, lane)
     lines = p.read_text(encoding="utf-8").splitlines() if p.exists() else []
-    done = False
+    done, stage = False, ""
     for i, line in enumerate(lines):
         if line.startswith(f"| {qid} |"):
             cells = [c.strip() for c in line.strip().strip("|").split("|")]
             cells[1] = "closed"
+            stage = cells[2]
             cells[-1] = (answer + (f" — {by}" if by else "")).replace("|", "/")
             lines[i] = "| " + " | ".join(cells) + " |"
             done = True
@@ -215,7 +216,7 @@ def queue_close(project: Path, qid: str, answer: str, by: str = "") -> None:
         raise SystemExit(f"no queue item {qid}")
     p.write_text("\n".join(lines) + "\n", encoding="utf-8")
     if lane == "hitl":
-        record_decision(project, f"{qid}: {answer}", by=by)
+        record_decision(project, f"{qid}: {answer}", by=by, stage=stage)
     log_event(project, f"{qid} closed: {answer}")
 
 
@@ -234,6 +235,9 @@ def approve(project: Path, sid: str, by: str, note: str = "") -> None:
         raise SystemExit(f"unknown stage {sid}")
     if not by.strip():
         raise SystemExit("an approval needs the person's name (--by)")
+    left = [x for x in gate(project, sid) if "needs the person's approval" not in x]
+    if left:
+        raise SystemExit(f"{sid} cannot be approved yet; the gate still has:\n- " + "\n- ".join(left))
     record_decision(project, f"APPROVED {sid} {STAGE_BY_ID[sid].name}" + (f": {note}" if note else ""), by=by, stage=sid)
     st = load_state(project)
     st["stages"][sid] = "done"

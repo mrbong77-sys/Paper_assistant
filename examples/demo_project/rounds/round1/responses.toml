@@ -1,0 +1,68 @@
+# Round 1 답변 표. `python -m pa round split`이 의견별 [[item]]을 덧붙이고,
+# `python -m pa round letter`가 이 파일로 답변서(Markdown, LaTeX, DOCX)를 만들고 빠진 곳을 점검합니다.
+#
+# status: done | partly | declined | pending
+# change: 원고에서 바뀐 정확한 위치(절, 쪽, 표·그림). done/partly이면 반드시 적습니다.
+# lane:   HITL(사람이 처리) | CITL(Claude가 처리)
+# in_paper: 원고가 바뀌었으면 true, 답변서에서만 설명했으면 false
+
+[letter]
+title = "Logistic regression versus nearest-centroid classification under class overlap: a synthetic benchmark"
+manuscript_id = "JES-2026-0001 (fictional)"
+journal = "Journal of Example Studies (fictional)"
+intro = """Thank you for the careful reading. Each comment is answered below, with the location of every change in the revised manuscript. Section, table and figure numbers refer to the revised version."""
+
+# 요청 밖에서 고친 것의 예:
+# [[own]]
+# id = "O1"
+# change = "Corrected the sample count in Table 2 (n = 118, not 119)."
+# reason = "Found in our own check of the numbers ledger."
+# location = "Table 2"
+# in_paper = true
+
+[[item]]
+id = "E.1"
+reviewer = "Editor"
+comment = """Please shorten the abstract to at most 150 words and make sure the conclusion is limited to the tested covariance setting."""
+response = """The abstract was shortened from 120 to 101 words and its last sentence now limits the conclusion to equal isotropic covariance."""
+change = "Abstract"
+status = "done"
+lane = "CITL"
+in_paper = true
+
+[[item]]
+id = "R1.1"
+reviewer = "Reviewer 1"
+comment = """The paper should test unequal covariances, where logistic regression is expected to help."""
+response = """The question is important, and the revised Discussion now explains why the result is expected to change with unequal covariances: the Bayes boundary is then no longer the perpendicular bisector of the means. A full experiment with unequal covariances would change the scope of this short communication, so it is named as the next controlled comparison rather than added here."""
+change = "Section 4, second paragraph"
+status = "partly"
+lane = "HITL"
+in_paper = true
+
+[[item]]
+id = "R1.2"
+reviewer = "Reviewer 1"
+comment = """The introduction attributes the equivalence between the nearest-centroid boundary and the Bayes boundary to Fisher (1936). Fisher derived the linear discriminant; the equivalence under isotropic covariance is a consequence, not his statement."""
+response = """Agreed. The sentence now states that the equivalence follows from the linear discriminant of Fisher (1936) under isotropic covariance, instead of attributing the equivalence to Fisher."""
+change = "Section 1, first paragraph, last two sentences"
+status = "done"
+lane = "CITL"
+in_paper = true
+
+[[item]]
+id = "R2.1"
+reviewer = "Reviewer 2"
+comment = """Table 1 reports means only. Please add the standard deviations over seeds."""
+response = """Table 1 now gives the mean ± standard deviation over the five seeds for both classifiers."""
+change = "Table 1 and its caption"
+status = "done"
+lane = "CITL"
+in_paper = true
+
+[[own]]
+id = "O1"
+change = "Re-ran run_benchmark.py and make_ledger.py from a clean folder before resubmission; every number in the ledger was unchanged."
+reason = "Check that the revised manuscript still matches the result files."
+location = ""
+in_paper = false

@@ -51,7 +51,7 @@ PHRASES_EN = [
 PHRASES_KO = [
     (r"에 있어(서)?", "KO-01", "번역투: '~에서', '~할 때'로"),
     (r"을 통해(서)?|를 통해(서)?", "KO-02", "'~으로', '~해서'로 바꿀 수 있는지"),
-    (r"되어지|되어져|되어진|지게 되", "KO-03", "이중 피동: '~된다'로"),
+    (r"되어지|되어져|되어졌|되어진|지게 되", "KO-03", "이중 피동: '~된다'로"),
     (r"것으로 (보인다|판단된다|사료된다|생각된다)|것으로 보입니다", "KO-04", "결과 서술에 추정 어미 금지(측정값은 단정, 해석만 유보)"),
     (r"(의미|중요성|특징|장점|한계)를 (가진다|갖는다|가지고 있다|갖습니다|가집니다)", "KO-05", "'가지다' 직역: '~이 있다', '~하다'로"),
     (r"에 대한 [^ ]+에 대한|에 대해 [^ ]+에 대해", "KO-06", "'~에 대한' 겹침"),
@@ -226,7 +226,9 @@ def check(text: str, profile: dict | None = None, max_words: int | None = None, 
         if prof.get("check_abbrev") and "LA-11" not in off:
             for m in re.finditer(ABBREV, clean):
                 a = m.group(0)
-                if a in ABBREV_OK or a in first_abbrev or (a.endswith("s") and a[:-1] in first_abbrev):
+                base = re.sub(r"\d+$", "", a)                       # RQ1 is covered by a defined RQ or RQs
+                if (a in ABBREV_OK or a in first_abbrev or (a.endswith("s") and a[:-1] in first_abbrev)
+                        or (base != a and (base in first_abbrev or base + "s" in first_abbrev))):
                     continue
                 defined = (clean[max(0, m.start() - 1):m.start()] == "(" or clean[m.end():m.end() + 2] == " ("
                            or bool(re.search(r"\(" + re.escape(a) + r"\b", clean)))
